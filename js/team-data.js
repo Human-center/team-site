@@ -30,7 +30,7 @@ window.TEAM_MEMBERS = [
   },
   {
     name: "Ivan Ong",
-    role: "Teammate",
+    role: "Founder",
     bio: "New to the workshop and picking up the craft — learning by building together with the Human Center crew.",
     color: "#507867",
     linkedin: "https://www.linkedin.com/in/ivan-ong-297987152/",
