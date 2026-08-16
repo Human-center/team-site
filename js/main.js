@@ -21,21 +21,61 @@
     });
   });
 
+  function esc(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
   const teamGrid = document.getElementById("teamGrid");
   (window.TEAM_MEMBERS || []).forEach((member) => {
     const card = document.createElement("article");
     card.className = "member-card reveal";
     const initials = member.name
       .split(" ")
+      .filter(Boolean)
       .map((w) => w[0])
       .join("")
       .toUpperCase()
       .slice(0, 2);
+    const avatar = member.photo
+      ? '<img class="member-avatar" src="' + esc(member.photo) + '" alt="' + esc(member.name) + '" />'
+      : '<div class="member-avatar" style="background:' + esc(member.color) + '">' + esc(initials) + "</div>";
+
+    const links = [];
+    if (member.profile) {
+      links.push('<a class="member-link" href="' + esc(member.profile) + '">Profile</a>');
+    }
+    if (member.linkedin) {
+      links.push(
+        '<a class="member-link" href="' + esc(member.linkedin) + '" target="_blank" rel="noopener">LinkedIn</a>'
+      );
+    }
+    if (member.link) {
+      links.push(
+        '<a class="member-link" href="' + esc(member.link) + '" target="_blank" rel="noopener">' +
+          esc(member.linkLabel || "Link") +
+        "</a>"
+      );
+    }
+
     card.innerHTML =
-      '<div class="member-avatar" style="background:' + member.color + '">' + initials + "</div>" +
-      "<h3>" + member.name + "</h3>" +
-      '<p class="member-role">' + member.role + "</p>" +
-      '<p class="member-bio">' + member.bio + "</p>";
+      avatar +
+      "<h3>" + esc(member.name) + "</h3>" +
+      '<p class="member-role">' + esc(member.role) + "</p>" +
+      '<p class="member-bio">' + esc(member.bio) + "</p>" +
+      (links.length ? '<p class="member-links">' + links.join("") + "</p>" : "");
+
+    if (member.profile) {
+      card.classList.add("is-link");
+      card.addEventListener("click", (event) => {
+        if (event.target.closest("a")) return;
+        window.location.href = member.profile;
+      });
+    }
+
     teamGrid.appendChild(card);
   });
 
