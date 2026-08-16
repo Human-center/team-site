@@ -529,6 +529,19 @@ code {
   font-size: 0.92rem;
 }
 
+.member-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--teal);
+  text-decoration: none;
+}
+
+.member-link:hover {
+  text-decoration: underline;
+}
+
 /* Contact */
 .contact-card {
   background: var(--white);

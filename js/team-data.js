@@ -6,10 +6,11 @@ window.TEAM_MEMBERS = [
     color: "#449faf",
   },
   {
-    name: "Your Name Here",
+    name: "Sharabesh Vijayan",
     role: "Teammate",
-    bio: "Add your own card — edit js/team-data.js and open a pull request.",
+    bio: "Building, breaking, and learning with the Human Center crew.",
     color: "#7fac54",
+    linkedin: "https://www.linkedin.com/in/sharabesh-vijayan-09574619b",
   },
   {
     name: "Your Name Here",
