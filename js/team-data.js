@@ -20,9 +20,10 @@ window.TEAM_MEMBERS = [
     linkLabel: "PM Platform",
   },
   {
-    name: "Your Name Here",
+    name: "Ivan Ong",
     role: "Teammate",
-    bio: "Duplicate a card, change the details, and see it live on the site.",
+    bio: "New to the workshop and picking up the craft — learning by building together with the Human Center crew.",
     color: "#507867",
+    linkedin: "https://www.linkedin.com/in/ivan-ong-297987152/",
   },
 ];
