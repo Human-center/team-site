@@ -26,7 +26,10 @@ html {
 body {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
   color: var(--forest);
-  background: var(--cream);
+  background:
+    radial-gradient(1100px 520px at 8% -8%, rgba(127, 172, 84, 0.18), transparent 58%),
+    radial-gradient(900px 480px at 108% 4%, rgba(68, 159, 175, 0.14), transparent 52%),
+    var(--cream);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -75,6 +78,24 @@ code {
 
 .section-head p {
   color: var(--muted);
+}
+
+.section-head a {
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.section-head a:hover {
+  text-decoration: underline;
+}
+
+.nav-live {
+  color: var(--teal) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.78rem !important;
 }
 
 /* Nav */
@@ -221,12 +242,15 @@ code {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    180deg,
-    rgba(244, 244, 234, 0.55) 0%,
-    rgba(244, 244, 234, 0.85) 55%,
-    var(--cream) 100%
-  );
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 30%, rgba(127, 172, 84, 0.16), transparent 58%),
+    linear-gradient(
+      180deg,
+      rgba(31, 53, 43, 0.08) 0%,
+      rgba(244, 244, 234, 0.55) 42%,
+      rgba(244, 244, 234, 0.92) 78%,
+      var(--cream) 100%
+    );
   pointer-events: none;
 }
 
@@ -267,6 +291,42 @@ code {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+.live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 8px 14px 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  color: var(--forest);
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(31, 53, 43, 0.06);
+}
+
+.live-pill:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 4px rgba(127, 172, 84, 0.22);
+  animation: live-pulse 1.8s ease-out infinite;
+}
+
+@keyframes live-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(127, 172, 84, 0.4); }
+  100% { box-shadow: 0 0 0 8px rgba(127, 172, 84, 0); }
 }
 
 .hero-scroll {
@@ -312,12 +372,23 @@ code {
 }
 
 .network-canvas {
+  display: block;
   width: 100%;
   aspect-ratio: 1;
-  border-radius: var(--radius);
+  border-radius: 24px;
   border: 1px solid var(--line);
-  background: var(--cream-2);
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.7), transparent 46%),
+    var(--cream-2);
   box-shadow: var(--shadow);
+  cursor: crosshair;
+}
+
+.canvas-caption {
+  margin-top: 12px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 500;
 }
 
 .about-copy h2 {
@@ -355,6 +426,49 @@ code {
   box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.5);
 }
 
+/* Canvas lesson */
+.canvas-lab {
+  background:
+    linear-gradient(180deg, rgba(233, 236, 223, 0.55), rgba(244, 244, 234, 0.2));
+  border-block: 1px solid var(--line);
+}
+
+.lesson-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.lesson-card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 22px 24px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.lesson-num {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+
+.lesson-card h3 {
+  font-size: 1.12rem;
+  margin-bottom: 10px;
+}
+
+.lesson-card p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 /* Team */
 .team {
   background: var(--cream-2);
@@ -368,12 +482,13 @@ code {
 }
 
 .member-card {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.88);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 28px 24px;
   text-align: center;
   transition: transform 0.25s, box-shadow 0.25s;
+  backdrop-filter: blur(8px);
 }
 
 .member-card:hover {
@@ -548,6 +663,10 @@ code {
     gap: 40px;
   }
 
+  .lesson-grid {
+    grid-template-columns: 1fr;
+  }
+
   .contact-card {
     padding: 40px 24px;
   }
@@ -556,4 +675,6 @@ code {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .hero-scroll::before,
+  .live-dot { animation: none; }
 }
