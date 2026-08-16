@@ -6,9 +6,9 @@ window.TEAM_MEMBERS = [
     color: "#449faf",
   },
   {
-    name: "Your Name Here",
-    role: "Teammate",
-    bio: "Add your own card — edit js/team-data.js and open a pull request.",
+    name: "Xu Simin",
+    role: "Research · Data Analysis · Project Management",
+    bio: "Runs research and data analysis for our AI venture and keeps projects on track. Built the team's project management web app — <a href=\"https://pm-platform-60x.pages.dev\" target=\"_blank\" rel=\"noopener\">PM Platform</a>.",
     color: "#7fac54",
   },
   {
