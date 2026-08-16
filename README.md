@@ -13,6 +13,8 @@ edit, and open pull requests against this repo.
 - `js/canvas-network.js` — HTML Canvas API particle network in the About section
 - `js/team-data.js` — **team member data — add your card here**
 - `js/main.js` — nav, team cards, contact form, scroll reveal
+- `profiles/` — optional full profile pages (see `profiles/lerwen.html`)
+- `images/` — photos used on team cards and profiles
 
 ## Workshop: add yourself to the team
 

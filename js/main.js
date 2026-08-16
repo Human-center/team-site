@@ -27,15 +27,41 @@
     card.className = "member-card reveal";
     const initials = member.name
       .split(" ")
+      .filter(Boolean)
       .map((w) => w[0])
       .join("")
       .toUpperCase()
       .slice(0, 2);
+
+    const avatar = member.photo
+      ? '<img class="member-avatar" src="' + member.photo + '" alt="' + member.name + '" />'
+      : '<div class="member-avatar" style="background:' + member.color + '">' + initials + "</div>";
+
+    const links = [];
+    if (member.profile) {
+      links.push('<a class="member-link" href="' + member.profile + '">Profile</a>');
+    }
+    if (member.linkedin) {
+      links.push(
+        '<a class="member-link" href="' + member.linkedin + '" target="_blank" rel="noopener">LinkedIn</a>'
+      );
+    }
+
     card.innerHTML =
-      '<div class="member-avatar" style="background:' + member.color + '">' + initials + "</div>" +
+      avatar +
       "<h3>" + member.name + "</h3>" +
       '<p class="member-role">' + member.role + "</p>" +
-      '<p class="member-bio">' + member.bio + "</p>";
+      '<p class="member-bio">' + member.bio + "</p>" +
+      (links.length ? '<p class="member-links">' + links.join("") + "</p>" : "");
+
+    if (member.profile) {
+      card.classList.add("is-link");
+      card.addEventListener("click", (event) => {
+        if (event.target.closest("a")) return;
+        window.location.href = member.profile;
+      });
+    }
+
     teamGrid.appendChild(card);
   });
 
