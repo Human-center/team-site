@@ -6,9 +6,9 @@ window.TEAM_MEMBERS = [
     color: "#449faf",
   },
   {
-    name: "Your Name Here",
-    role: "Teammate",
-    bio: "Add your own card — edit js/team-data.js and open a pull request.",
+    name: "Kareeshma",
+    role: "Teammate · Builder",
+    bio: "Know me — joining the workshop to build real products together, one PR at a time.",
     color: "#7fac54",
   },
   {
