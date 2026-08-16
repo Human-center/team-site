@@ -30,6 +30,46 @@
   }
 
   const teamGrid = document.getElementById("teamGrid");
+  const modal = document.getElementById("teamModal");
+  const modalAvatar = document.getElementById("modalAvatar");
+  const modalName = document.getElementById("modalName");
+  const modalRole = document.getElementById("modalRole");
+  const modalBio = document.getElementById("modalBio");
+  const modalLink = document.getElementById("modalLink");
+
+  function openModal(member) {
+    if (!modal) return;
+    modalAvatar.innerHTML = member.photo
+      ? '<img src="' + esc(member.photo) + '" alt="' + esc(member.name) + '" />'
+      : "<span>" + esc(member.name.split(" ").map((w) => w[0]).join("").slice(0, 2)) + "</span>";
+    modalName.textContent = member.name;
+    modalRole.textContent = member.role;
+    modalBio.textContent = member.fullBio || member.bio;
+    if (member.linkedin) {
+      modalLink.href = member.linkedin;
+      modalLink.hidden = false;
+    } else {
+      modalLink.hidden = true;
+    }
+    modal.hidden = false;
+    document.body.classList.add("modal-open");
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.hidden = true;
+    document.body.classList.remove("modal-open");
+  }
+
+  if (modal) {
+    modal.querySelectorAll("[data-modal-close]").forEach((el) => {
+      el.addEventListener("click", closeModal);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+  }
+
   (window.TEAM_MEMBERS || []).forEach((member) => {
     const card = document.createElement("article");
     card.className = "member-card reveal";
@@ -73,6 +113,20 @@
       card.addEventListener("click", (event) => {
         if (event.target.closest("a")) return;
         window.location.href = member.profile;
+      });
+    } else if (member.fullBio && modal) {
+      card.classList.add("is-link");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("role", "button");
+      card.addEventListener("click", (event) => {
+        if (event.target.closest("a")) return;
+        openModal(member);
+      });
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openModal(member);
+        }
       });
     }
 

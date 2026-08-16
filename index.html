@@ -193,6 +193,18 @@
       </div>
     </footer>
 
+    <div class="modal" id="teamModal" hidden>
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalName">
+        <button class="modal-close" type="button" data-modal-close aria-label="Close">&times;</button>
+        <div class="modal-avatar" id="modalAvatar"></div>
+        <h3 id="modalName"></h3>
+        <p class="member-role" id="modalRole"></p>
+        <p class="modal-bio" id="modalBio"></p>
+        <a class="modal-link" id="modalLink" href="#" target="_blank" rel="noopener">View on LinkedIn</a>
+      </div>
+    </div>
+
     <script src="js/team-data.js"></script>
     <script src="js/main.js"></script>
     <script type="module" src="js/three-hero.js"></script>
