@@ -14,6 +14,8 @@ The About panel is an HTML `<canvas>` particle network (glowing nodes, distance-
 - `js/canvas-network.js` — Canvas 2D particle network — **read this to learn canvas**
 - `js/team-data.js` — **team member data — add your card here**
 - `js/main.js` — nav, team cards, contact form, scroll reveal
+- `profiles/` — optional full profile pages (see `profiles/lerwen.html`)
+- `images/` — photos used on team cards and profiles
 
 ## Who can contribute
 
