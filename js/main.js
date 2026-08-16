@@ -40,14 +40,25 @@
       .join("")
       .toUpperCase()
       .slice(0, 2);
+    const links = [];
+    if (member.linkedin) {
+      links.push(
+        '<a class="member-link" href="' + esc(member.linkedin) + '" target="_blank" rel="noopener">LinkedIn</a>'
+      );
+    }
+    if (member.link) {
+      links.push(
+        '<a class="member-link" href="' + esc(member.link) + '" target="_blank" rel="noopener">' +
+          esc(member.linkLabel || "Link") +
+        "</a>"
+      );
+    }
     card.innerHTML =
       '<div class="member-avatar" style="background:' + esc(member.color) + '">' + esc(initials) + "</div>" +
       "<h3>" + esc(member.name) + "</h3>" +
       '<p class="member-role">' + esc(member.role) + "</p>" +
       '<p class="member-bio">' + esc(member.bio) + "</p>" +
-      (member.linkedin
-        ? '<a class="member-link" href="' + esc(member.linkedin) + '" target="_blank" rel="noopener">LinkedIn</a>'
-        : "");
+      (links.length ? '<p class="member-links">' + links.join("") + "</p>" : "");
     teamGrid.appendChild(card);
   });
 

@@ -11,5 +11,7 @@ window.TEAM_MEMBERS = [
     bio: "New to the workshop and picking up the craft — learning by building together with the Human Center crew.",
     color: "#7fac54",
     linkedin: "https://www.linkedin.com/in/ivan-ong-297987152/",
+    link: "https://www.steamplatform.org/expert/ivan-ong",
+    linkLabel: "Steam Platform",
   },
 ];
