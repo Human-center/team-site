@@ -12,6 +12,14 @@ window.TEAM_MEMBERS = [
     color: "#7fac54",
   },
   {
+    name: "Xu Simin",
+    role: "Research · Data Analysis · Project Management",
+    bio: "Runs research and data analysis for our AI venture and keeps projects on track. Built the team's project management web app.",
+    color: "#449faf",
+    link: "https://pm-platform-60x.pages.dev",
+    linkLabel: "PM Platform",
+  },
+  {
     name: "Your Name Here",
     role: "Teammate",
     bio: "Duplicate a card, change the details, and see it live on the site.",
