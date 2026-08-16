@@ -7,8 +7,8 @@ window.TEAM_MEMBERS = [
   },
   {
     name: "Kareeshma",
-    role: "Teammate · Builder",
-    bio: "Know me — joining the workshop to build real products together, one PR at a time.",
+    role: "Aerospace Engineering Student · Intern @ SAESL",
+    bio: "Aerospace engineering undergraduate at NTU, Singapore. Passionate about aerospace tech, manufacturing and engineering innovation — hands-on with SolidWorks, Python and computational analysis.",
     color: "#7fac54",
   },
   {
