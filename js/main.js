@@ -22,20 +22,72 @@
   });
 
   const teamGrid = document.getElementById("teamGrid");
-  (window.TEAM_MEMBERS || []).forEach((member) => {
-    const card = document.createElement("article");
-    card.className = "member-card reveal";
-    const initials = member.name
+  const modal = document.getElementById("teamModal");
+  const modalAvatar = document.getElementById("modalAvatar");
+  const modalName = document.getElementById("modalName");
+  const modalRole = document.getElementById("modalRole");
+  const modalBio = document.getElementById("modalBio");
+  const modalLink = document.getElementById("modalLink");
+
+  const initials = (name) =>
+    name
       .split(" ")
       .map((w) => w[0])
       .join("")
       .toUpperCase()
       .slice(0, 2);
+
+  const openModal = (member) => {
+    modalAvatar.innerHTML = member.photo
+      ? '<img src="' + member.photo + '" alt="' + member.name + '" />'
+      : "<span>" + initials(member.name) + "</span>";
+    modalName.textContent = member.name;
+    modalRole.textContent = member.role;
+    modalBio.textContent = member.fullBio || member.bio;
+    if (member.linkedin) {
+      modalLink.href = member.linkedin;
+      modalLink.style.display = "inline-block";
+    } else {
+      modalLink.style.display = "none";
+    }
+    modal.hidden = false;
+    document.body.classList.add("modal-open");
+  };
+
+  const closeModal = () => {
+    modal.hidden = true;
+    document.body.classList.remove("modal-open");
+  };
+
+  modal.querySelectorAll("[data-modal-close]").forEach((el) => {
+    el.addEventListener("click", closeModal);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+
+  (window.TEAM_MEMBERS || []).forEach((member) => {
+    const card = document.createElement("article");
+    card.className = "member-card reveal" + (member.fullBio ? " clickable" : "");
+    const avatar = member.photo
+      ? '<img src="' + member.photo + '" alt="' + member.name + '" />'
+      : "<span>" + initials(member.name) + "</span>";
     card.innerHTML =
-      '<div class="member-avatar" style="background:' + member.color + '">' + initials + "</div>" +
+      '<div class="member-avatar" style="background:' + member.color + '">' + avatar + "</div>" +
       "<h3>" + member.name + "</h3>" +
       '<p class="member-role">' + member.role + "</p>" +
       '<p class="member-bio">' + member.bio + "</p>";
+    if (member.fullBio) {
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("role", "button");
+      card.addEventListener("click", () => openModal(member));
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openModal(member);
+        }
+      });
+    }
     teamGrid.appendChild(card);
   });
 
