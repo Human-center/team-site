@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   const nav = document.getElementById("nav");
   const navToggle = document.getElementById("navToggle");
   const navLinks = document.getElementById("navLinks");
@@ -64,7 +64,7 @@
       encodeURIComponent("Human Center workshop inquiry") +
       "&body=" + encodeURIComponent(body);
     window.location.href = mail;
-    note.textContent = "Opening your mail app — we'll get back to you!";
+    note.textContent = "Opening your mail app â€” we'll get back to you!";
   });
 
   document.getElementById("year").textContent = new Date().getFullYear();
