@@ -6,15 +6,10 @@ window.TEAM_MEMBERS = [
     color: "#449faf",
   },
   {
-    name: "Your Name Here",
+    name: "Ivan Ong",
     role: "Teammate",
-    bio: "Add your own card — edit js/team-data.js and open a pull request.",
+    bio: "New to the workshop and picking up the craft — learning by building together with the Human Center crew.",
     color: "#7fac54",
-  },
-  {
-    name: "Your Name Here",
-    role: "Teammate",
-    bio: "Duplicate a card, change the details, and see it live on the site.",
-    color: "#507867",
+    linkedin: "https://www.linkedin.com/in/ivan-ong-297987152/",
   },
 ];

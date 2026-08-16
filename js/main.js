@@ -35,7 +35,10 @@
       '<div class="member-avatar" style="background:' + member.color + '">' + initials + "</div>" +
       "<h3>" + member.name + "</h3>" +
       '<p class="member-role">' + member.role + "</p>" +
-      '<p class="member-bio">' + member.bio + "</p>";
+      '<p class="member-bio">' + member.bio + "</p>" +
+      (member.linkedin
+        ? '<a class="member-link" href="' + member.linkedin + '" target="_blank" rel="noopener">LinkedIn</a>'
+        : "");
     teamGrid.appendChild(card);
   });
 
