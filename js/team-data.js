@@ -1,27 +1,54 @@
 window.TEAM_MEMBERS = [
   {
+    name: "Lerwen Liu",
+    role: "Founder · Associate Professor",
+    bio: "Founded HCSREL at NTU. Circular economy, green transition, and purpose-driven entrepreneurship.",
+    color: "#1f352b",
+    photo: "images/lerwen-liu.jpg",
+    linkedin: "https://www.linkedin.com/in/lerwen-liu/",
+    profile: "profiles/lerwen.html",
+  },
+  {
     name: "Vasanth Sreeram",
     role: "Founder · Builder",
     bio: "Kicks off the builds and keeps the workshop honest. Ships the dashboards and the SIM app.",
     color: "#449faf",
   },
   {
-    name: "Teeramate Nuanplub",
-    role: "Web Developer",
-    bio: "Bangkok-based web developer, 7+ years shipping sites and apps. Building at GVN Marketing. MSc IT from KMUTT.",
-    fullBio:
-      "Web developer based in Bangkok with 7+ years shipping websites and web apps. " +
-      "Currently building at GVN Marketing, where he works on website development and optimization, integrations, and AI-powered SEO. " +
-      "Previously a webmaster and content manager at STEAM Platform, where he supported circular-economy and sustainability education programs. " +
-      "Holds an MSc in Information Technology and a BSc in Applied Computer Science — Multimedia from King Mongkut's University of Technology Thonburi.",
-    photo: "assets/team/Teeramate-portrait.png",
-    linkedin: "https://linkedin.com/in/teeramate-nuanplub-327952178",
+    name: "Kareeshma",
+    role: "Teammate · Builder",
+    bio: "Know me — joining the workshop to build real products together, one PR at a time.",
     color: "#7fac54",
   },
   {
-    name: "Your Name Here",
-    role: "Teammate",
-    bio: "Duplicate a card, change the details, and see it live on the site.",
+    name: "Xu Simin",
+    role: "Research · Data Analysis · Project Management",
+    bio: "Runs research and data analysis for our AI venture and keeps projects on track. Built the team's project management web app.",
+    color: "#449faf",
+    link: "https://pm-platform-60x.pages.dev",
+    linkLabel: "PM Platform",
+  },
+  {
+    name: "Ivan Ong",
+    role: "Founder",
+    bio: "New to the workshop and picking up the craft — learning by building together with the Human Center crew.",
     color: "#507867",
+    linkedin: "https://www.linkedin.com/in/ivan-ong-297987152/",
+  },
+  {
+    name: "Sharabesh Vijayan",
+    role: "Teammate",
+    bio: "Building, breaking, and learning with the Human Center crew.",
+    color: "#7fac54",
+    linkedin: "https://www.linkedin.com/in/sharabesh-vijayan-09574619b",
+  },
+  {
+    name: "Teeramate Nuanplub",
+    role: "Developer",
+    bio: "Bangkok-based developer, 7+ years shipping sites and apps. Building at HCSREL. MSc IT from KMUTT.",
+    photo: "assets/team/Teeramate-portrait.png",
+    linkedin: "https://linkedin.com/in/teeramate-nuanplub-327952178",
+    profile: "profiles/teeramate.html",
+    color: "#7fac54",
   },
 ];

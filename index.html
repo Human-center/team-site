@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Human Center — We build together</title>
     <meta name="description" content="Human Center is a team that learns to code together and ships real products." />
+    <link rel="canonical" href="https://team-site-bje.pages.dev/" />
+    <meta property="og:title" content="Human Center — We build together" />
+    <meta property="og:description" content="A small team, one shared repo, and real products. The Human Center coding workshop." />
+    <meta property="og:url" content="https://team-site-bje.pages.dev/" />
+    <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%231f352b'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%237fac54'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,14 +34,16 @@
       </button>
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
+        <a href="#canvas">Canvas</a>
         <a href="#team">Team</a>
         <a href="#contact">Contact</a>
+        <a href="https://team-site-bje.pages.dev" class="nav-live" title="Live site">Live</a>
         <a href="#contact" class="btn btn-primary btn-sm">Join us</a>
       </div>
     </nav>
 
     <header class="hero" id="top">
-      <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+      <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true" role="presentation"></canvas>
       <div class="hero-content">
         <p class="hero-eyebrow">Human Center · HCSREL</p>
         <h1 class="hero-title">We learn to code<br /><span>by building together.</span></h1>
@@ -47,8 +54,12 @@
         </p>
         <div class="hero-actions">
           <a href="#team" class="btn btn-primary">Meet the team</a>
-          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+          <a href="#canvas" class="btn btn-ghost">See the canvas</a>
         </div>
+        <a class="live-pill" href="https://team-site-bje.pages.dev">
+          <span class="live-dot" aria-hidden="true"></span>
+          Live · team-site-bje.pages.dev
+        </a>
       </div>
       <div class="hero-scroll" aria-hidden="true"></div>
     </header>
@@ -57,7 +68,12 @@
       <section class="about section" id="about">
         <div class="container about-grid">
           <div class="about-art">
-            <canvas id="network-canvas" class="network-canvas" aria-hidden="true"></canvas>
+            <canvas id="network-canvas" class="network-canvas">
+              Particle network: teammates as glowing nodes, collaboration as the lines between them.
+            </canvas>
+            <p class="canvas-caption">
+              HTML Canvas · <code>js/canvas-network.js</code> · move your pointer
+            </p>
           </div>
           <div class="about-copy">
             <p class="eyebrow">About us</p>
@@ -77,12 +93,62 @@
         </div>
       </section>
 
+      <section class="canvas-lab section" id="canvas">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">How this canvas works</p>
+            <h2>A bitmap you redraw every frame</h2>
+            <p>
+              The About panel is not a video or an image. It is an HTML
+              <code>&lt;canvas&gt;</code> — a 2D drawing surface. The script
+              paints dots and lines 60 times a second.
+            </p>
+          </div>
+          <ol class="lesson-grid">
+            <li class="lesson-card reveal">
+              <span class="lesson-num">01</span>
+              <h3>Get a 2D context</h3>
+              <p>
+                <code>canvas.getContext("2d")</code> is the paint API. CSS sizes
+                the box; we set <code>canvas.width</code> / <code>height</code>
+                to CSS size × devicePixelRatio so it stays sharp on retina
+                screens.
+              </p>
+            </li>
+            <li class="lesson-card reveal">
+              <span class="lesson-num">02</span>
+              <h3>Particles are just data</h3>
+              <p>
+                Each node is <code>{x, y, vx, vy}</code>. Every frame we add
+                velocity, bounce off the edges, and ease toward the pointer
+                (magnetism). Then we draw a radial-gradient glow and a solid
+                core.
+              </p>
+            </li>
+            <li class="lesson-card reveal">
+              <span class="lesson-num">03</span>
+              <h3>Link what is close</h3>
+              <p>
+                If two particles are nearer than a radius, we stroke a line.
+                Opacity fades with distance so the graph reads as a network,
+                not a scribble. Pause the loop when the canvas is off-screen.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
       <section class="team section" id="team">
         <div class="container">
           <div class="section-head">
             <p class="eyebrow">The team</p>
             <h2>People building together</h2>
-            <p>Add a card for each teammate — edit the list in <code>js/team-data.js</code>.</p>
+            <p>
+              Add a card in <code>js/team-data.js</code>, open a pull request,
+              and a teammate merges it to <code>main</code>. That ships on
+              <a href="https://team-site-bje.pages.dev">team-site-bje.pages.dev</a>.
+              How-to: <a href="https://github.com/Human-center/team-site/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.
+            </p>
           </div>
           <div class="team-grid" id="teamGrid"></div>
         </div>
@@ -119,23 +185,13 @@
       <div class="container footer-inner">
         <p>© <span id="year"></span> Human Center. Built together, line by line.</p>
         <div class="footer-links">
-          <a href="https://github.com/Human-center" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://team-site-bje.pages.dev">Live site</a>
+          <a href="https://github.com/Human-center/team-site/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribute</a>
+          <a href="https://github.com/Human-center/team-site" target="_blank" rel="noopener">GitHub</a>
           <a href="https://sim.hcsrel.com" target="_blank" rel="noopener">SIM</a>
         </div>
       </div>
     </footer>
-
-    <div class="modal" id="teamModal" hidden>
-      <div class="modal-backdrop" data-modal-close></div>
-      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalName">
-        <button class="modal-close" data-modal-close aria-label="Close">&times;</button>
-        <div class="modal-avatar" id="modalAvatar"></div>
-        <h3 id="modalName"></h3>
-        <p class="member-role" id="modalRole"></p>
-        <p class="modal-bio" id="modalBio"></p>
-        <a class="modal-link" id="modalLink" href="#" target="_blank" rel="noopener">View on LinkedIn</a>
-      </div>
-    </div>
 
     <script src="js/team-data.js"></script>
     <script src="js/main.js"></script>
