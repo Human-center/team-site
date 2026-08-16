@@ -81,7 +81,7 @@
       .toUpperCase()
       .slice(0, 2);
     const avatar = member.photo
-      ? '<img class="member-avatar" src="' + esc(member.photo) + '" alt="' + esc(member.name) + '" />'
+      ? '<div class="member-avatar has-photo"><img src="' + esc(member.photo) + '" alt="' + esc(member.name) + '" /></div>'
       : '<div class="member-avatar" style="background:' + esc(member.color) + '">' + esc(initials) + "</div>";
 
     const links = [];

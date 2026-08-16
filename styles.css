@@ -497,10 +497,12 @@ code {
 }
 
 .member-avatar {
-  width: 84px;
-  height: 84px;
+  width: 88px;
+  height: 88px;
   margin: 0 auto 16px;
   border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -508,6 +510,12 @@ code {
   font-weight: 800;
   font-size: 1.6rem;
   color: var(--cream);
+  background: var(--cream-2);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.member-avatar.has-photo {
+  background: var(--cream-2);
 }
 
 .member-card h3 {
@@ -527,12 +535,6 @@ code {
 .member-bio {
   color: var(--muted);
   font-size: 0.92rem;
-}
-
-img.member-avatar {
-  display: block;
-  object-fit: cover;
-  object-position: center top;
 }
 
 .member-card.is-link {
@@ -561,11 +563,12 @@ img.member-avatar {
   text-decoration: underline;
 }
 
-.member-avatar img,
-img.member-avatar {
+.member-avatar img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 18%;
 }
 
 .modal {
@@ -636,6 +639,7 @@ img.member-avatar {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 18%;
 }
 
 .modal-bio {
@@ -677,7 +681,7 @@ body.modal-open {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 12%;
   border-radius: 28px;
   background: var(--cream-2);
   border: 1px solid var(--line);
